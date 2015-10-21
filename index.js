@@ -7,8 +7,8 @@ var contrast = require('contrast');
 module.exports = postcss.plugin('postcss-dynamic-contrast', function(opts) {
   opts = opts || {};
 
-  return function (css) {
-    css.walkDecls( function (decl) {
+  return function(css) {
+    css.walkDecls(function(decl) {
       if (!decl.value || decl.value.indexOf('contrast(') === -1) {
         return;
       }
@@ -17,7 +17,7 @@ module.exports = postcss.plugin('postcss-dynamic-contrast', function(opts) {
       var last = decl.value.indexOf(')');
       var value = decl.value.slice(++index, last);
 
-      if(contrast(value) === 'light') {
+      if (contrast(value) === 'light') {
         color = '#000';
       }
       else {
