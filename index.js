@@ -4,7 +4,7 @@ var contrast = require('contrast');
 /**
  * PostCSS plugin to transform contrast()
  */
-module.exports = postcss.plugin('postcss-dynamic-contrast', function(opts) {
+module.exports = postcss.plugin('postcss-contrast', function(opts) {
   opts = opts || {};
 
   return function(css) {
@@ -16,16 +16,15 @@ module.exports = postcss.plugin('postcss-dynamic-contrast', function(opts) {
       var index = decl.value.indexOf('(');
       var last = decl.value.indexOf(')');
       var value = decl.value.slice(++index, last);
-      var color = decl.value;
 
       if (contrast(value) === 'light') {
-        color = '#000';
+        decl.value = '#000';
+        return decl.value;
       }
       else {
-        color = '#fff';
+        decl.value = '#fff';
+        return decl.value;
       }
-
-      decl.value = color;
     });
   };
 });

@@ -16,8 +16,13 @@ function compareFixtures(t, name, msg, opts, postcssOpts) {
   t.equal(actual, expected, msg);
 }
 
-test('contrast()', function(t) {
-  compareFixtures(t, 'contrast', 'should transform contrast()');
+test('dark', function(t) {
+  compareFixtures(t, 'dark', 'should transform darks to #fff');
+  t.end();
+});
+
+test('light', function(t) {
+  compareFixtures(t, 'light', 'should transform lights to #000');
   t.end();
 });
 
