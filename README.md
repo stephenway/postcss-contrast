@@ -1,5 +1,8 @@
 # postcss-contrast
 
+<img src="giticon.png" alt="postcss-contrast" style="float:right;" width="250"
+height="250">
+
 PostCSS plugin to change text color depending on background color
 contrast.
 
