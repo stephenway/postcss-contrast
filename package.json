@@ -1,6 +1,6 @@
 {
   "name": "postcss-contrast",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "PostCSS plugin to change text color depending on background color contrast",
   "main": "index.js",
   "keywords": [
