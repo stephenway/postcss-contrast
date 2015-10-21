@@ -6,6 +6,8 @@ var contrast = require('contrast');
  */
 module.exports = postcss.plugin('postcss-contrast', function(opts) {
   opts = opts || {};
+  opts.dark = '#000';
+  opts.light = '#fff';
 
   return function(css) {
     css.walkDecls(function(decl) {
@@ -18,12 +20,10 @@ module.exports = postcss.plugin('postcss-contrast', function(opts) {
       var value = decl.value.slice(++index, last);
 
       if (contrast(value) === 'light') {
-        decl.value = '#000';
-        return decl.value;
+        decl.value = opts.dark;
       }
       else {
-        decl.value = '#fff';
-        return decl.value;
+        decl.value = opts.light;
       }
     });
   };
