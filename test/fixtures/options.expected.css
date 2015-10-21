@@ -1,7 +1,7 @@
 body {
-  background: #fff;
   color: #efefef;
-  border-top-color: #cccccc;
   border-bottom-color: #efefef;
+  border-right-color: #444;
+  border-left-color: #444;
 }
 

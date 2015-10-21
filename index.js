@@ -1,3 +1,5 @@
+'use strict';
+
 var postcss = require('postcss');
 var contrast = require('contrast');
 
@@ -6,8 +8,8 @@ var contrast = require('contrast');
  */
 module.exports = postcss.plugin('postcss-contrast', function(opts) {
   opts = opts || {};
-  opts.dark = '#000';
-  opts.light = '#fff';
+  var dark = opts.dark;
+  var light = opts.light;
 
   return function(css) {
     css.walkDecls(function(decl) {
@@ -18,13 +20,30 @@ module.exports = postcss.plugin('postcss-contrast', function(opts) {
       var index = decl.value.indexOf('(');
       var last = decl.value.indexOf(')');
       var value = decl.value.slice(++index, last);
+      var black = '#000';
+      var white = '#fff';
 
-      if (contrast(value) === 'light') {
-        decl.value = opts.dark;
-      }
-      else {
-        decl.value = opts.light;
-      }
+
+      return new Promise(function(resolve) {
+        if (contrast(value) === 'light') {
+          if (!dark) {
+            decl.value = black;
+          }
+          else {
+            decl.value = opts.dark;
+          }
+          resolve();
+        }
+        else {
+          if (!light) {
+            decl.value = white;
+          }
+          else {
+            decl.value = opts.light;
+          }
+          resolve();
+        }
+      });
     });
   };
 });
