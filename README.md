@@ -27,7 +27,7 @@ npm i --save-dev postcss-contrast
 
 body {
   background-color: var(--bg-color);
-  color: contrast-text-color(var(--bg-color);
+  color: contrast-text-color(var(--bg-color));
 }
 ```
 
