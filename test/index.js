@@ -26,3 +26,8 @@ test('light', function(t) {
   t.end();
 });
 
+test('options', function(t) {
+  compareFixtures(t, 'options', 'should transform to custom dark/light option', {dark: '#444', light: '#efefef'});
+  t.end();
+});
+

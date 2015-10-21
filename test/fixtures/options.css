@@ -1,0 +1,7 @@
+body {
+  color: contrast(#000000);
+  border-bottom-color: contrast(#666666);
+  border-right-color: contrast(#ffffff);
+  border-left-color: contrast(#cccccc);
+}
+
