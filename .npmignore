@@ -1,6 +1,7 @@
 .gitignore
 node_modules/
 *.log
+*.png
 test/
 .travis.yml
 gulpfile.js
