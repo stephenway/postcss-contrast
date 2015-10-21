@@ -21,12 +21,3 @@ test('contrast()', function(t) {
   t.end();
 });
 
-test('throw errors', function(t) {
-  t.throws(function() {
-    return postcss(plugin()).process(read(filename('fixtures/error'))).css;
-  },
-  /Unable to parse contrast from string/,
-  'throws a readable error when a contrast cannot be parsed');
-
-  t.end();
-});
